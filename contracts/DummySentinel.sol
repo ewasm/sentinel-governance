@@ -13,6 +13,22 @@ contract DummySentinel is Sentinel {
         output = input;
     }
 
+    // Note, the Sentinel contract should also accept an incoming call with the `0x0061736D` selector and process
+    // it as if it were a non-ABI wrapped call to this function.
+    function() external {
+        if (msg.sig == 0x0061736d) {
+            // NOTE: this isn't the most canonical use case of Solidity,
+            // but for simplicity and speed let's do it this way
+            assembly {
+                // NOTE: this only does a copying as validateAndMeter is doing above
+                let free_memory_ptr := mload(0x40)
+                let payload_len := sub(calldatasize(), 4)
+                calldatacopy(free_memory_ptr, 4, payload_len)
+                return(free_memory_ptr, payload_len)
+            }
+        }
+    }
+
     // Returns the current CostTable contract.
     function getCostTable() external view returns (CostTable costTable) {
         costTable = m_costTable;
