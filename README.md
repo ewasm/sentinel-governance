@@ -2,7 +2,7 @@
 
 This is a governance prototype for the Sentinel contract.
 
-It implements the [specification](https://github.com/ewasm/design/pull/144) proposed on the ewasm design repository.
+It implements the [specification](https://github.com/ewasm/design/blob/master/sentinel.md) proposed on the ewasm design repository.
 
 ## Author(s)
 
