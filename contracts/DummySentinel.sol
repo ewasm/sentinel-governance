@@ -9,7 +9,7 @@ contract DummySentinel is Sentinel {
     }
 
     // Takes a contract as an input, validates and injects metering statements and returns the upadted version.
-    function validateAndMeter(bytes calldata input) external pure returns (bytes memory output) {
+    function validateAndMeter(bytes calldata input) external view returns (bytes memory output) {
         output = input;
     }
 
