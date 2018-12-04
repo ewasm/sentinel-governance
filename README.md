@@ -1,3 +1,5 @@
+[![CircleCI](https://img.shields.io/circleci/project/github/ewasm/sentinel-governance/master.svg?style=flat-square)](https://circleci.com/gh/ewasm/sentinel-governance/tree/master)
+
 # sentinel-governance
 
 This is a governance prototype for the Sentinel contract.
