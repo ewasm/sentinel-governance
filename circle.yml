@@ -1,0 +1,22 @@
+version: 2
+
+jobs:
+  build:
+    docker:
+      - image: circleci/node:8
+    steps:
+      - checkout
+      - run:
+          name: Install truffle nightly
+          command: npm install truffle@next
+          # Note: we should install this here in the global namespace,
+          # but that requires root access (sudo npm install works).
+          # However, the next problem is that truffle tries to create `.cache`
+          # directory within the global installation, effectively requiring
+          # `truffle build` to run as root. Hence the weird path below.
+      - run:
+          name: Build
+          command: node_modules/truffle/build/cli.bundled.js build
+      - run:
+          name: Test
+          command: node_modules/truffle/build/cli.bundled.js test
