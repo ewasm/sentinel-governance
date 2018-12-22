@@ -1,3 +1,5 @@
+pragma solidity ^0.5.0;
+
 interface CostTable {
     enum CostKind {
         BaseInstantiation,

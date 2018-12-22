@@ -1,3 +1,5 @@
+pragma solidity ^0.5.0;
+
 import "./Sentinel.sol";
 
 contract DummySentinel is Sentinel {
